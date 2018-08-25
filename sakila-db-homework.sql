@@ -101,11 +101,15 @@ WHERE
 -- 4d. Perhaps we were too hasty in changing GROUCHO to HARPO.
 -- It turns out that GROUCHO was the correct name after all!
 -- In a single query, if the first name of the actor is currently HARPO, change it to GROUCHO.
+SET SQL_SAFE_UPDATES = 0;
+
 UPDATE
 	actor
 SET first_name = 'Groucho'
 WHERE 
 	first_name = 'Harpo';
+
+SET SQL_SAFE_UPDATES = 1;
 
 -- 5a. You cannot locate the schema of the address table. Which query would you use to re-create it?
 -- Hint: https://dev.mysql.com/doc/refman/5.7/en/show-create-table.html
