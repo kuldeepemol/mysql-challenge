@@ -258,7 +258,7 @@ JOIN inventory i USING (film_id)
 JOIN rental r USING (inventory_id)
 JOIN payment p USING(rental_id)
 GROUP BY c.name
-ORDER BY 'Total Revenue'
+ORDER BY SUM(p.amount) DESC
 LIMIT 5;
 
 -- 8a. In your new role as an executive, you would like to have an easy way of viewing the Top five genres by gross revenue.
@@ -273,7 +273,7 @@ JOIN inventory i USING (film_id)
 JOIN rental r USING (inventory_id)
 JOIN payment p USING(rental_id)
 GROUP BY c.name
-ORDER BY 'Total Revenue'
+ORDER BY SUM(p.amount) DESC
 LIMIT 5;
 
 -- 8b. How would you display the view that you created in 8a?
