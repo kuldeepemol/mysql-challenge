@@ -133,8 +133,7 @@ SELECT
 FROM staff s
 JOIN payment p USING (staff_id)
 WHERE 
-	p.payment_date >= '2005-08-01'
-    AND p.payment_date <= '2005-08-31'
+	p.payment_date BETWEEN '2005-08-01' AND '2005-08-31'
 GROUP BY s.first_name, s.last_name;
 
 -- 6c. List each film and the number of actors who are listed for that film.
